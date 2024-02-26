@@ -2,18 +2,18 @@ apply plugin: 'java'
 apply from: 'deploy.gradle'
 
 group "com.github.purejavacomm"
-version "1.0.3.RELEASE"
+version "1.0.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
 compileJava {
-    sourceCompatibility = 1.5
+    sourceCompatibility = 11
     // Copy the rt.jar from the appropriate JDK distribution.
     // Older versions can be obtained from this site:
     // http://www.oracle.com/technetwork/java/javase/archive-139210.html
-    options.bootClasspath = "lib-rt/rt.jar"
+    // options.bootClasspath = "lib-rt/rt.jar"
 }
 
 sourceSets {
@@ -35,9 +35,5 @@ sourceSets {
 }
 
 dependencies {
-    compile 'net.java.dev.jna:jna:4.2.2'
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '3.1'
+    implementation 'net.java.dev.jna:jna:5.14.0'
 }
